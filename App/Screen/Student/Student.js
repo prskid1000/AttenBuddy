@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Alert, Button,Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert, Button } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
@@ -10,14 +10,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         top: hp('10%')
     },
-    Logo: 
-    {
-        height: hp('68%'), 
-        width: wp('40%')
-    },
 });
 
-class Welcome extends React.Component
+class Student extends React.Component
 {
     constructor(props){
         super(props);
@@ -26,12 +21,9 @@ class Welcome extends React.Component
     render() {
         return (
             <View style={styles.Container}>
-                <TouchableOpacity onPress={() =>this.props.navigation.navigate('Login',{})}>
-                     <Image source={require("../../assets/logos/logo.gif")} style={styles.Logo}/>
-                </TouchableOpacity>
             </View>
         );
     }
 }
 
-export default Welcome; 
+export default Student; 
