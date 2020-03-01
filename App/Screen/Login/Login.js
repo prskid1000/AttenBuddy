@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
    },
    submitButton: {
       backgroundColor: '#7a42f4',
-      padding: 10,
+      padding: 15,
       margin: 15,
       height: hp('10%'),
       width:  wp('10%')

@@ -7,6 +7,8 @@ import Login from "./Screen/Login/Login";
 import Student from "./Screen/Student/Student";
 import Admin from "./Screen/Admin/Admin";
 import Teacher from "./Screen/Teacher/Teacher";
+import ClassView from "./Screen/Teacher/ClassView";
+import Attendence from "./Screen/Teacher/Attendence";
 
 const RootStack = createStackNavigator(
     {
@@ -15,6 +17,8 @@ const RootStack = createStackNavigator(
         Student: Student,
         Admin: Admin,
         Teacher: Teacher,
+        ClassView: ClassView,
+        Attendence: Attendence,
     },
     {
         initialRouteName: 'Welcome',

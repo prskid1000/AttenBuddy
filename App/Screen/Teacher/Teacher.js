@@ -1,96 +1,122 @@
 import React, { Component } from 'react';
-
-import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import { ScrollView, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import CollapseView from "react-native-collapse-view";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import GaugeChart from 'react-gauge-chart'
 
  
 const styles = StyleSheet.create(
 {
     container: {
-    flex: 1,
-    backgroundColor: '#009688',
+    backgroundColor: '#8080ff',
   },
   view: {
-    height:50,
-    padding: 20,
+    height:  hp('12%'),
+    padding: wp('2%'),
     justifyContent:'center',
-    backgroundColor:'#ffffff',
+    backgroundColor:'#4d4dff',
   },
   collapseView: {
     padding: 20
   },
-  iconView: {
-    padding: 20,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor:'#ffffff',
-  }
 });
 
 
 class Teacher extends Component {
   constructor(props) {
     super(props);
- 
+    
+    this.state={
+    }
   }
   
-  _renderView = (collapse) => {
+  _renderView1 = (collapse) => {
     return(
       <View style={styles.view}>
-        <Text>Toggle {collapse? 'on': 'off'}</Text>
+        <Text>FIRST YEAR</Text>
       </View>
     )
   }
 
-  _renderTensionView = (collapse) => {
-    return(
-      <View style={styles.view}>
-        <Text>With tension effect</Text>
-      </View>
-    )
-  }
-
-  _renderIconView = (collapse) => {
-    return(
-      <View style={styles.iconView}>
-        <Text>Toggle {collapse? 'on': 'off'}</Text>
-        <View>
-          {
-            collapse?
-            <h1>U</h1>:
-            <h1>D</h1>
-          }
-        </View>
-      </View>
-    )
-  }
-
-  _renderCollapseView = (collapse) => {
+  _renderCollapseView1 = (collapse) => {
     return(
       <View style={styles.collapseView}>
-        <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Text>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':1,})}><Text>Subect4</Text></TouchableOpacity>
+      </View>
+    )
+  }
+  
+  _renderView2 = (collapse) => {
+    return(
+      <View style={styles.view}>
+        <Text>SECOND YEAR</Text>
+      </View>
+    )
+  }
+
+  _renderCollapseView2 = (collapse,data) => {
+    return(
+      <View style={styles.collapseView}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':2,})}><Text>Subect4</Text></TouchableOpacity>
+      </View>
+    )
+  }
+  
+  _renderView3 = (collapse) => {
+    return(
+      <View style={styles.view}>
+        <Text>THIRD YEAR</Text>
+      </View>
+    )
+  }
+
+  _renderCollapseView3 = (collapse) => {
+    return(
+      <View style={styles.collapseView}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':3,})}><Text>Subect3</Text></TouchableOpacity>
+      </View>
+    )
+  }
+  
+  _renderView4 = (collapse) => {
+    return(
+      <View style={styles.view}>
+        <Text>FOURTH YEAR</Text>
+      </View>
+    )
+  }
+
+  _renderCollapseView4 = (collapse,data) => {
+    return(
+      <View style={styles.collapseView}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':4,})}><Text>Subect4</Text></TouchableOpacity>
       </View>
     )
   }
  
+  
   render() {
     return (
+     <ScrollView>
      <View style={styles.container}>
       <CollapseView 
-        tension={100}
-        renderView={this._renderTensionView}
-        renderCollapseView={this._renderCollapseView}
+        renderView={this._renderView1}
+        renderCollapseView={this._renderCollapseView1}
       />
-      <CollapseView 
-        renderView={this._renderView}
-        renderCollapseView={this._renderCollapseView}
+      <CollapseView
+        renderView={this._renderView2}
+        renderCollapseView={this._renderCollapseView2}
       />
-      <CollapseView 
-        renderView={this._renderIconView}
-        renderCollapseView={this._renderCollapseView}
+      <CollapseView
+        renderView={this._renderView3}
+        renderCollapseView={this._renderCollapseView3}
+      />
+      <CollapseView
+        renderView={this._renderView4}
+        renderCollapseView={this._renderCollapseView4}
       />
     </View>
+    </ScrollView>
     );
   }
 }
