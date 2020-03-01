@@ -27,6 +27,10 @@ class Teacher extends Component {
     super(props);
     
     this.state={
+        first:['A','B','C','D'],
+        second:['E','F','G','H','I'],
+        third:['J','K'],
+        fourth:['L']
     }
   }
   
@@ -39,9 +43,16 @@ class Teacher extends Component {
   }
 
   _renderCollapseView1 = (collapse) => {
+      const data=[];
+      for( let i=0;i<this.state.first.length;i++)
+      {
+          let str=this.state.first[i];
+          data.push(<TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':str,})}><Text>{str}</Text></TouchableOpacity>
+        );
+      }
     return(
       <View style={styles.collapseView}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':1,})}><Text>Subect4</Text></TouchableOpacity>
+        {data}
       </View>
     )
   }
@@ -54,10 +65,17 @@ class Teacher extends Component {
     )
   }
 
-  _renderCollapseView2 = (collapse,data) => {
+  _renderCollapseView2 = (collapse) => {
+    const data=[];
+      for( let i=0;i<this.state.second.length;i++)
+      {
+          let str=this.state.second[i];
+          data.push(<TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':str,})}><Text>{str}</Text></TouchableOpacity>
+        );
+      }
     return(
       <View style={styles.collapseView}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':2,})}><Text>Subect4</Text></TouchableOpacity>
+        {data}
       </View>
     )
   }
@@ -71,9 +89,16 @@ class Teacher extends Component {
   }
 
   _renderCollapseView3 = (collapse) => {
+    const data=[];
+      for( let i=0;i<this.state.third.length;i++)
+      {
+          let str=this.state.third[i];
+          data.push(<TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':str,})}><Text>{str}</Text></TouchableOpacity>
+        );
+      }
     return(
       <View style={styles.collapseView}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':3,})}><Text>Subect3</Text></TouchableOpacity>
+        {data}
       </View>
     )
   }
@@ -86,10 +111,17 @@ class Teacher extends Component {
     )
   }
 
-  _renderCollapseView4 = (collapse,data) => {
+  _renderCollapseView4 = (collapse) => {
+    const data=[];
+      for( let i=0;i<this.state.fourth.length;i++)
+      {
+          let str=this.state.fourth[i];
+          data.push(<TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':str,})}><Text>{str}</Text></TouchableOpacity>
+        );
+      }
     return(
       <View style={styles.collapseView}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ClassView',{'Subject':4,})}><Text>Subect4</Text></TouchableOpacity>
+        {data}
       </View>
     )
   }
