@@ -37,7 +37,8 @@ class Attendence extends Component {
     
     this.state={
         date:"2016-05-15",
-        student:[0,0,0,0,0]
+        student:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
+        pt:0,
     }
   }
   
@@ -45,54 +46,40 @@ class Attendence extends Component {
       
     var p=this.props.navigation.getParam('start','0');
     var q=this.props.navigation.getParam('stop','0');
+    var sub=this.props.navigation.getParam('Subject','0');
     const cards=[];
-    let c=0;
-      for(let i=p;c<5&&i<q;i++,c++)
+      for(let i=p;i<q;i++)
       {
           cards.push(<Card>
           <CardTitle subtitle={i}/>
-          <CardContent><Text>{this.state.student[i]==1?'Present':'Absent'}</Text></CardContent>
+          <CardContent><Text>Today: {this.state.student[i]==1?'Present':'Absent'}</Text></CardContent>
+          <CardContent><Text>Percentage:</Text></CardContent>
           <CardAction separator={true} inColumn={false}>
           <CardButton onPress={() => {var arr=this.state.student.slice();
         arr[i]=1;
-        this.setState({student:arr});}} title="Present" color="#FEB557"/>
+        this.setState({student:arr});if(this.state.student[i]==0)this.setState({pt:this.state.pt+1});}} title="Present" color="#FEB557"/>
           <CardButton onPress={() => {var arr=this.state.student.slice();
         arr[i]=0;
-        this.setState({student:arr});}} title="Absent" color="#FEB557"/>
+        this.setState({student:arr});if(this.state.student[i]==1)this.setState({pt:this.state.pt-1});}} title="Absent" color="#FEB557"/>
           </CardAction></Card>);
       }
-    if(p==q-5)
-    {
     return (
      <ScrollView style={styles.container}>
      <View>{cards}</View>
+     <Card>
+          <CardTitle subtitle='Review'/>
+          <CardContent><Text>Present: {this.state.pt}</Text></CardContent>
+          <CardContent><Text>Absent:  {q-this.state.pt}</Text></CardContent>
+          <CardAction separator={true} inColumn={false}>
+          </CardAction></Card>
      <TouchableOpacity
                style = {styles.submitButton}
-               onPress={() => this.props.navigation.navigate('ClassView',{'start':p+5,'stop':50})}>
+               onPress={() => {this.props.navigation.navigate('ClassView',{'Subject':sub});}}>
                <Text style = {styles.submitButtonText}>DONE</Text>
     </TouchableOpacity>
     </ScrollView>
     );
     }
-    else
-    {
-      var dp="Remaining Rolls="+(q-(p+5));
-    return (
-     <ScrollView style={styles.container}>
-      <View>{cards}</View>
-      <Card>
-          <CardTitle subtitle={dp}/>
-          <CardAction separator={true} inColumn={false}>
-          </CardAction></Card>
-     <TouchableOpacity
-               style = {styles.submitButton}
-               onPress={() => this.props.navigation.navigate('Attendence',{'start':p+5,'stop':50})}>
-               <Text style = {styles.submitButtonText}>NEXT</Text>
-    </TouchableOpacity>
-    </ScrollView>
-    );
-    }
-  }
 }
 
 

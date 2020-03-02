@@ -9,20 +9,22 @@ class Login extends React.Component
         this.state = 
         {
             email: '',
-            password: ''
+            password: '',
+            type:['Student','Teacher','Admin']
         }
     }
     
     handleEmail = (text) => {
-      this.setState({ email: text })
+      this.setState({ email: text });
     }
     
     handlePassword = (text) => {
-      this.setState({ password: text })
+      this.setState({ password: text });
     }
     
     login = (email, pass) => {
-      this.props.navigation.navigate('Teacher',{'play1':0,'play2':0,})
+      let i=2;
+      this.props.navigation.navigate(this.state.type[i],{'uniqueID':0});
     }
 
     render() {

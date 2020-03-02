@@ -5,7 +5,10 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import Welcome from "./Screen/Login/Welcome";
 import Login from "./Screen/Login/Login";
 import Student from "./Screen/Student/Student";
+import SubjectView from "./Screen/Student/SubjectView";
 import Admin from "./Screen/Admin/Admin";
+import StudentManage from "./Screen/Admin/StudentManage";
+import FacultyManage from "./Screen/Admin/FacultyManage";
 import Teacher from "./Screen/Teacher/Teacher";
 import ClassView from "./Screen/Teacher/ClassView";
 import Attendence from "./Screen/Teacher/Attendence";
@@ -19,6 +22,9 @@ const RootStack = createStackNavigator(
         Teacher: Teacher,
         ClassView: ClassView,
         Attendence: Attendence,
+        SubjectView: SubjectView,
+        StudentManage: StudentManage,
+        FacultyManage: FacultyManage,
     },
     {
         initialRouteName: 'Welcome',

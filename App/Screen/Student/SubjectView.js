@@ -35,7 +35,7 @@ const styles = StyleSheet.create(
 });
 
 
-class ClassView extends Component {
+class SubjectView extends Component {
   constructor(props) {
     super(props);
     
@@ -48,38 +48,10 @@ class ClassView extends Component {
   render() {
     return (
      <ScrollView style={styles.container}>
-     <Text><h1><b>Subject:{this.props.navigation.getParam('Subject','Nill')}</b></h1></Text>
+     <Text><h1><b>Subject:{this.props.navigation.getParam('Subject','0')}</b></h1></Text>
      <View style={styles.gauge}>
           <GaugeChart id="gauge-chart5" nrOfLevels={20} arcPadding={0.01} cornerRadius={3}percent={0.6}/>
      </View>
-     <DatePicker
-        style={{width: 200}}
-        date={this.state.date}
-        mode="date"
-        placeholder="select date"
-        format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-        }}
-        onDateChange={(date) => {this.setState({date: date})}}
-      />
-     <TouchableOpacity
-               style = {styles.submitButton}
-               onPress={() => this.props.navigation.navigate('Attendence',{'date':this.state.date,'start':0,'stop':50,'Subject':this.props.navigation.getParam('Subject','Nill')})}>
-               <Text style = {styles.submitButtonText}>Attendence</Text>
-    </TouchableOpacity>
     </ScrollView>
     );
   }
@@ -87,4 +59,4 @@ class ClassView extends Component {
 
 
 
-export default ClassView
+export default SubjectView
