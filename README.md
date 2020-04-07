@@ -1,2 +1,2 @@
-# attendence_system
-A student attendence system
+# attendance_system
+A student attendance system
