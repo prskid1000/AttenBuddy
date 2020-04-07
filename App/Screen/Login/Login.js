@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert, Button } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {Logindb} from '../../Server/Login/Login.js'
 
 class Login extends React.Component
 {
@@ -25,6 +26,7 @@ class Login extends React.Component
     login = (email, pass) => {
       let i=2;
       this.props.navigation.navigate(this.state.type[i],{'uniqueID':0});
+      Logindb();
     }
 
     render() {
