@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header2') %>
+</header>
+
+<main>
+<div class="row">
+    <div class="col-sm-8">    
+        <div class="jumbotron">
+            <h1>AttenBuddy</h1>
+            <p>Welcome to one of the best Attendance Management System</p>
+        </div>
+    </div>
+
+    <div class="col-sm-4">        
+        <div class="well">
+            <h3>Student</h3>
+            <p>You are a student.You can review your attendance of all the courses you are enrolled in.</p>
+        </div>
+    </div>
+</div>
+<% var k=0 %>
+<% for (var i =0; i < (course.length/4)+1;  i++ ) { %>
+    <div class="row">
+    <% for (var j =0; j <4;  j++ ) { %>
+      <% if(k<course.length) { %>
+        <div class="col-sm-3">
+    <div class="card-body">
+    <div class="card bg-dark text-white">
+    <h4 class="card-title" style="text-align:center"><em><b><%= course[k].name %></b></em></h4>
+    <center><p class="card-text"><h5><em>Instructor: </em><%= course[k].teacher %></h5></p></center>
+    <center><form action = "/viewAttendance" method = "POST"><div class="form-group">
+    <input type="hidden" name="batch" value= <%= batch %> >
+    <input type="hidden" name="userid" value= <%= userid %> >
+    <input type="hidden" name="course" value= <%= course[k].name %> >
+    <input type="submit" value="View" class="btn btn-danger btn-sm btn-block">
+    </div></form></center>
+    </div>
+    </div>
+    </div>
+    <% k++} %>
+    <% } %>
+    </div>
+<% } %>
+</main>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>
+ 
+ 

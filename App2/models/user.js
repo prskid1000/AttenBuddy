@@ -1,6 +1,4 @@
 var mongoose = require('mongoose');
-var ans='t';
-
 var UserSchema = new mongoose.Schema({
   userid: {
     type: String,
@@ -14,6 +12,10 @@ var UserSchema = new mongoose.Schema({
   level: {
     type: String,
     required: true
+  },
+  batch: {
+    type: String,
+    required: false
   }
 });
 

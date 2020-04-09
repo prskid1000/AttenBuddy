@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://prskid1000:HATSoff@2018@cluster0-qxsqv.mongodb.net/test?retryWrites=true&w=majority';
+var mongoDB = 'mongodb+srv://prskid1000:nIELmPiB3vZ4YkWQ@cluster0-qxsqv.mongodb.net/test?retryWrites=true&w=majority';
 
 
 exports.about_us= (req, res, next) => {
@@ -28,7 +28,6 @@ exports.isAuth= (req, res, next) => {
         res.redirect('/');
     } else {            
         console.log("User found");
-        console.log(docs);
         next();
     }
     });
@@ -50,8 +49,9 @@ exports.logOut=(req, res, next) => {
     res.clearCookie('userid'); 
     res.clearCookie('password');
     res.clearCookie('level');
+    res.clearCookie('batch');
     console.log("User Logged Out");
-    res.render('/');
+    res.render('pages/index');
 }
 
 
@@ -66,6 +66,7 @@ exports.loginHub=(req, res, next) => {
         res.cookie('userid', docs.userid, {expire:400000+Date.now()});
         res.cookie('password', docs.password, {expire:400000+Date.now()});
         res.cookie('level', docs.level, {expire:400000+Date.now()});
+        res.cookie('batch', docs.batch, {expire:400000+Date.now()});
         if(docs.level==='student')res.redirect('/studentHub',);
         if(docs.level==='admin')res.redirect('/adminHub');
         if(docs.level==='teacher')res.redirect('/teacherHub');

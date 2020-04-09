@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header3') %>
+</header>
+
+<main>
+<div class="row">
+    <div class="col-sm-8">    
+        <div class="jumbotron">
+            <h1>AttenBuddy</h1>
+            <p>Welcome to one of the best Attendance Management System</p>
+        </div>
+    </div>
+
+    <div class="col-sm-4">        
+        <div class="well">
+            <h3>Teacher</h3>
+            <p>You can take your attendance of all the courses you are teaching.</p>
+        </div>
+    </div>
+</div>
+<form action = "/modify" method = "POST">
+<% var k=0 %>
+<% for (var i =0; i < (present.length/4)+1;  i++ ) { %>
+    <div class="row">
+    <% for (var j =0; j <4;  j++ ) { %>
+      <% if(k<present.length) { %>
+        <div class="col-sm-3">
+    <div class="card-body">
+    <div class="card bg-success text-white">
+    <center><h4 class="card-title"><em><b><%= present[k] %></b></em></h4></center>
+    <center><div class="form-group">
+    <input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="info" data-offstyle="info" data-on="Present" data-off="Absent" name=<%= present[k] %> >
+    <br>
+    </div></center>
+    </div>
+    </div>
+    </div>
+    <% k++} %>
+    <% } %>
+    </div>
+<% } %>
+<% k=0 %>
+<% for (var i =0; i < (absent.length/4)+1;  i++ ) { %>
+    <div class="row">
+    <% for (var j =0; j <4;  j++ ) { %>
+      <% if(k<absent.length) { %>
+        <div class="col-sm-3">
+    <div class="card-body">
+    <div class="card bg-danger text-white">
+    <center><h4 class="card-title"><em><b><%= absent[k] %></b></em></h4></center>
+    <center><div class="form-group">
+    <input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="info" data-offstyle="info" data-on="Present" data-off="Absent" name=<%= absent[k] %> >
+    <br>
+    </div></center>
+    </div>
+    </div>
+    </div>
+    <% k++} %>
+    <% } %>
+    </div>
+<% } %>
+<div class="row">
+ <div class="col-sm-12">
+<div class="form-group">
+<input type="submit" value="Submit" class="btn btn-info btn-lg btn-block">
+</div>
+</div>
+</div>
+<input type="hidden" name="course" value= <%= course %> >
+<input type="hidden" name="teacher" value= <%= teacher %> >
+<input type="hidden" name="date" value= <%= date %> >
+<input type="hidden" name="batch" value= <%= batch %> >
+</form>
+</main>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>
+ 
+ 
+ 
