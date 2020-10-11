@@ -32,14 +32,14 @@ If you're have worked on the front-end part make PR to the front-end branch
 and same goes for the back-end too.
 
 ### PR rules:
-- Kindly follow the Pull Request template provided.
+- Kindly follow the Pull Request template provided
 
 For more details kindly go through our
 [Contributing Guidelines.](https://github.com/prskid1000/Template/blob/main/.github/CONTRIBUTING_TEMPLATE/CONTRIBUTING.md)
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people. ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
