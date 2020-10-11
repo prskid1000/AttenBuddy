@@ -32,7 +32,7 @@ If you're have worked on the front-end part make PR to the front-end branch
 and same goes for the back-end too.
 
 ### PR rules:
-- Kindly follow the Pull Request template provided.
+- Kindly follow the Pull Request template provided
 
 For more details kindly go through our
 [Contributing Guidelines.](https://github.com/prskid1000/Template/blob/main/.github/CONTRIBUTING_TEMPLATE/CONTRIBUTING.md)
