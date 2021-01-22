@@ -1,6 +1,11 @@
 # AttenBuddy
 A student Attendance System with features to manage teacher,subjects and student.
 
+### Credential
+- Admin(prskid, 1234)
+- Student(prskid, 1236)
+- Teacher(prskid, 1235)
+
 ## Live At:
 https://attenbuddy.herokuapp.com/
 
