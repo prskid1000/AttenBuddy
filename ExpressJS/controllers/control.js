@@ -1,7 +1,3 @@
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://prskid1000:nIELmPiB3vZ4YkWQ@cluster0-qxsqv.mongodb.net/test?retryWrites=true&w=majority';
-
-
 exports.about_us= (req, res, next) => {
     res.render('pages/about');
     next();
@@ -10,14 +6,6 @@ exports.about_us= (req, res, next) => {
 exports.base= (req, res, next) => {
     res.render('pages/index');
     next();
-};
-
-exports.connectDB= (req, res, next) => {
-    mongoose.connect(mongoDB, { useNewUrlParser: true });
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'MongoDB Connection Error'));
-    db.on('open', console.error.bind(console, 'MongoDB Connected Succesfully'))
-    .then(next());
 };
 
 exports.isAuth= (req, res, next) => {

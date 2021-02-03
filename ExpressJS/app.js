@@ -1,3 +1,11 @@
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://prskid1000:nIELmPiB3vZ4YkWQ@cluster0-qxsqv.mongodb.net/test?retryWrites=true&w=majority';
+
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB Connection Error'));
+db.on('open', console.error.bind(console, 'MongoDB Connected Succesfully'));
+
 var express = require('express');
 var app = express();
 
@@ -12,10 +20,15 @@ const teacher=require('./controllers/teacher');
 const student=require('./controllers/student');
 const admin=require('./controllers/admin');
 
+const controlb = require('./controllers/controlb');
+const teacherb = require('./controllers/teacherb');
+const studentb = require('./controllers/studentb');
+const adminb = require('./controllers/adminb');
+
 app.set('view engine', 'ejs');
 
 app.get('/',control.base);
-app.post('/login',control.connectDB,control.loginHub);
+app.post('/login',control.loginHub);
 app.get('/logout',control.isAuth,control.logOut);
 app.get('/about',control.about_us);
 app.get('/studentHub',control.isAuth,control.studentHub);
@@ -50,5 +63,30 @@ app.post('/deleteCourse',control.isAuth,admin.deleteCourse);
 app.post('/deleteTeacher',control.isAuth,admin.deleteTeacher);
 app.post('/deleteStudent',control.isAuth,admin.deleteStudent);
 
-app.listen(8060);
+
+//Android-Desktop Backend
+app.post('/isauth', controlb.isAuth)
+
+app.post('/add_course', adminb.addCourse);
+app.post('/add_teacher', adminb.addTeacher);
+app.post('/add_student', adminb.addStudent);
+
+app.get('/getcourse', adminb.manageCourse);
+app.get('/getteacher', adminb.manageTeacher);
+app.get('/getstudent', adminb.manageStudent);
+
+
+app.post('/delete_course', adminb.deleteCourse);
+app.post('/delete_teacher', adminb.deleteTeacher);
+app.post('/delete_student', adminb.deleteStudent);
+
+app.post('/view_attendance', studentb.viewAttendance);
+
+app.post('/getsheet', teacherb.getSheet);
+app.post('/savesheet', teacherb.saveSheet);
+app.post('/modifysheet', teacherb.modifySheet);
+
+app.listen(process.env.PORT || 3000,
+    () => console.log("Server is running..."));
+
 console.log('AttenBuddy Started');
