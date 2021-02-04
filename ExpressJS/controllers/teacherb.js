@@ -30,11 +30,11 @@ exports.saveSheet = (req, res, next) => {
     model.save()
    .then(doc => {
      console.log(doc);
-     res.json({ success: 'False', data: err })
+     res.json({ success: 'True', data: doc })
    })
    .catch(err => {
      console.error(err);
-     res.json({ success: 'True', data: docs })
+     res.json({ success: 'False', data: err })
    })
 };
 
@@ -58,11 +58,11 @@ exports.modifySheet = (req, res, next) => {
         model.save()
        .then(doc => {
           console.log(doc);
-          res.json({ success: 'False', data: err })
+          res.json({ success: 'True', data: doc })
         })
        .catch(err => {
           console.error(err);
-          res.json({ success: 'True', data: err })
+          res.json({ success: 'False', data: err })
         })
         }
    });

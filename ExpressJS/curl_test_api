@@ -19,3 +19,7 @@ curl --data "batch=2018" http://localhost:3000/view_attendance
 curl --data "course=management&teacher=prskid&date=2020-04-15&batch=2018" http://localhost:3000/getsheet
 
 curl --data "course=management&teacher=prskid&date=2020-04-15&batch=2018&attend=['anny','sam']" http://localhost:3000/modifysheet
+
+curl --data "course=management&teacher=prskid&date=2020-04-15&batch=2022&attend=["anny","sam"]" http://localhost:3000/savesheet
+
+{course: management, teacher: prskid, date: 2021-02-04, batch: 2022, attend: ["prskid","anny"]}
