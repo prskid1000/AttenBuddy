@@ -16,16 +16,10 @@ exports.getSheet= (req, res, next) => {
 exports.saveSheet = (req, res, next) => {
     
     var attend=[];
-  
-    for(var key in req.body) {
-    if(req.body.hasOwnProperty(key)){
-        if(key!='course'&&key!='teacher'&&key!='date'&&key!='batch')attend.push(key);
-     }
-    }
 
     var Model=require('../models/attendance');
     console.log(req.body)
-    var model=new Model({course:req.body.course,teacher:req.body.teacher,date:req.body.date,batch:req.body.batch,attend:attend});
+    var model=new Model({course:req.body.course,teacher:req.body.teacher,date:req.body.date,batch:req.body.batch,attend: req.body.attend});
 
     model.save()
    .then(doc => {
@@ -48,13 +42,8 @@ exports.modifySheet = (req, res, next) => {
         } else {            
             var attend=[];
             
-        for(var key in req.body) {
-        if(req.body.hasOwnProperty(key)){
-        if(key!='course'&&key!='teacher'&&key!='date'&&key!='batch')attend.push(key);
-          }
-        }
         var Model=require('../models/attendance');
-        var model=new Model({course:req.body.course,teacher:req.body.teacher,date:req.body.date,batch:req.body.batch,attend:attend});
+        var model=new Model({course:req.body.course,teacher:req.body.teacher,date:req.body.date,batch:req.body.batch,attend: req.body.attend});
         model.save()
        .then(doc => {
           console.log(doc);
