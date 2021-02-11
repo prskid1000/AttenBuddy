@@ -6,6 +6,26 @@ A student Attendance System with features to manage teacher,subjects and student
 - Student(prskid, 1236)
 - Teacher(prskid, 1235)
 
+![1](https://github.com/prskid1000/AttenBuddy/blob/master/Preview/1.png?raw=true)
+
+![2](https://github.com/prskid1000AttenBuddy/blob/master/Preview/2.png?raw=true)
+
+![1](https://github.com/prskid1000/AttenBuddy/blob/master/Preview/3.png?raw=true)
+
+![2](https://github.com/prskid1000AttenBuddy/blob/master/Preview/4.png?raw=true)
+
+![1](https://github.com/prskid1000/AttenBuddy/blob/master/Preview/5.png?raw=true)
+
+![2](https://github.com/prskid1000AttenBuddy/blob/master/Preview/6.png?raw=true)
+
+![1](https://github.com/prskid1000/AttenBuddy/blob/master/Preview/7.png?raw=true)
+
+![2](https://github.com/prskid1000AttenBuddy/blob/master/Preview/8.png?raw=true)
+
+![1](https://github.com/prskid1000/AttenBuddy/blob/master/Preview/9.png?raw=true)
+
+![2](https://github.com/prskid1000AttenBuddy/blob/master/Preview/10.png?raw=true)
+
 ## Live At:
 https://attenbuddy.herokuapp.com/
 
