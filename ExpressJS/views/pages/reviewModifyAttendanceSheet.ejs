@@ -33,8 +33,12 @@
       <% if(k<present.length) { %>
         <div class="col-sm-3">
     <div class="card-body">
-    <div class="card bg-success text-white">
-    <center><h4 class="card-title"><em><b><%= present[k] %></b></em></h4></center>
+    <div class="card grey darken-4 text-white">
+        <div class="card-title" style="text-align:center">
+            <h4><b>
+                    <%= present[k] %>
+                </b></h4>
+        </div>
     <center><div class="form-group">
     <input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="info" data-offstyle="info" data-on="Present" data-off="Absent" name=<%= present[k] %> >
     <br>
@@ -53,10 +57,15 @@
       <% if(k<absent.length) { %>
         <div class="col-sm-3">
     <div class="card-body">
-    <div class="card bg-danger text-white">
-    <center><h4 class="card-title"><em><b><%= absent[k] %></b></em></h4></center>
+    <div class="card grey darken-4 text-white">
+        <div class="card-title" style="text-align:center">
+            <h4><b>
+                    <%= absent[k] %>
+                </b></h4>
+        </div>
+    
     <center><div class="form-group">
-    <input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="info" data-offstyle="info" data-on="Present" data-off="Absent" name=<%= absent[k] %> >
+    <input class="absent" type="checkbox" data-toggle="toggle" data-size="small" data-onstyle="info" data-offstyle="info" data-on="Present" data-off="Absent" name=<%= absent[k] %> >
     <br>
     </div></center>
     </div>
@@ -66,10 +75,13 @@
     <% } %>
     </div>
 <% } %>
+<script>
+    var toggle = document.getElementByClassName('absent'); 
+</script>
 <div class="row">
  <div class="col-sm-12">
 <div class="form-group">
-<input type="submit" value="Submit" class="btn btn-info btn-lg btn-block">
+<input type="submit" value="Submit" class="btn btn-lg btn-block teal darken-4">
 </div>
 </div>
 </div>
