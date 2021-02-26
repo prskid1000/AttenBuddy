@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-sm-8">    
         <div class="jumbotron">
-            <h1>AttenBuddy</h1>
+            <h2>AttenBuddy</h2>
             <p>Welcome to one of the best Attendance Management System</p>
         </div>
     </div>
@@ -22,21 +22,21 @@
     <div class="col-sm-4">        
         <div class="well">
             <form action = "/addTeacher" method = "POST">
-					<div class="input-group form-group">
+                <br><br>
+					<div class="input-group form-group col-10">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="userid" name="userid">
-						
+						<input type="text" class="form-control" placeholder="userid" name="userid">	
 					</div>
-					<div class="input-group form-group">
+					<div class="input-group form-group col-10">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="password" name="password">
 					</div>
-					<div class="form-group">
-						<input type="submit" value="Create" class="btn float-left  btn-success">
+					<div class="form-group col-10">
+						<input type="submit" value="Create" class="btn float-right grey darken-4">
 					</div>
 				</form>
         </div>
@@ -49,15 +49,33 @@
       <% if(k<teacher.length) { %>
         <div class="col-sm-3">
     <div class="card-body">
-    <div class="card bg-dark text-white">
-    <h4 class="card-title" style="text-align:center"><em><b><%= teacher[k].userid %></b></em></h4>
-    <hr color="white">
-    <center><p class="card-text"><h5><em>Password: </em><%= teacher[k].password %></h5></p></center>
-    <center><form action = "/deleteTeacher" method = "POST"><div class="form-group">
-    <input type="hidden" name="userid" value= <%= teacher[k].userid %> >
-    <input type="hidden" name="password" value= <%= teacher[k].password %> >
-    <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block">
-    </div></form></center>
+    <div class="card grey darken-4 text-white">
+        <div class="card-title" style="text-align:center">
+            <h4><b>
+                    <%= teacher[k].userid %>
+                </b></h4>
+        </div>
+    <div>
+        <center>
+            <p class="card-text">
+            <h5>Password:</h5>
+            <h6>
+                <%= teacher[k].password %>
+            </h6>
+            </p>
+        </center>
+    </div>
+    <center>
+        <form action="/deleteTeacher" method="POST">
+            <div class="form-group">
+                <div>
+                    <input type="hidden" name="userid" value=<%=teacher[k].userid %> >
+                    <input type="hidden" name="password" value=<%=teacher[k].password %> >
+                </div>
+            </div>
+            <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block teal darken-4">
+        </form>
+    </center>
     </div>
     </div>
     </div>

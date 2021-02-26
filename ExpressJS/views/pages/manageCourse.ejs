@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-sm-8">    
         <div class="jumbotron">
-            <h1>AttenBuddy</h1>
+            <h2>AttenBuddy</h2>
             <p>Welcome to one of the best Attendance Management System</p>
         </div>
     </div>
@@ -22,27 +22,27 @@
     <div class="col-sm-4">        
         <div class="well">
             <form action = "/addCourse" method = "POST">
-					<div class="input-group form-group">
+					<div class="input-group form-group col-10">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="course" name="course">
+						<input type="text" class="form-control" placeholder="Course" name="course">
 						
 					</div>
-					<div class="input-group form-group">
+					<div class="input-group form-group col-10">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="teacher" name="teacher">
+						<input type="text" class="form-control" placeholder="Teacher" name="teacher">
 					</div>
-					<div class="input-group form-group">
+					<div class="input-group form-group col-10">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="year" name="year">
+						<input type="text" class="form-control" placeholder="Year" name="year">
 					</div>
-					<div class="form-group">
-						<input type="submit" value="Create" class="btn float-left  btn-success">
+					<div class="form-group col-10">
+						<input type="submit" value="Create" class="btn float-right grey darken-4">
 					</div>
 				</form>
         </div>
@@ -55,17 +55,36 @@
       <% if(k<course.length) { %>
         <div class="col-sm-3">
     <div class="card-body">
-    <div class="card bg-dark text-white">
-    <h4 class="card-title" style="text-align:center"><em><b><%= course[k].name %></b></em></h4>
-    <hr color="white">
-    <center><p class="card-text"><h5><em>Instructor: </em><%= course[k].teacher %></h5></p></center>
-    <center><p class="card-text"><h5><em>Intended For: </em><%= course[k].year %> year</h5></p></center>
-    <center><form action = "/deleteCourse" method = "POST"><div class="form-group">
-    <input type="hidden" name="course" value=<%= course[k].name %> >
-    <input type="hidden" name="teacher" value=<%= course[k].teacher %> >
-    <input type="hidden" name="year" value=<%= course[k].year %> >
-    <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block">
-    </div></form></center>
+    <div class="card grey darken-4 text-white">
+    <div class="card-title" style="text-align:center"><h4><b><%= course[k].name %></b></h4></div>
+    <div>
+        <center>
+            <p class="card-text">
+                <h5>Instructor:</h5>
+                <h6>
+                    <%= course[k].teacher %>
+                </h6>
+            </p>
+        </center>
+        <center>
+            <p class="card-text">
+                <h5>Intended For:</h5>
+                <h6>
+                    <%= course[k].year %> Year
+                </h6>
+            </p>
+        </center>
+    </div>
+    <center><form action = "/deleteCourse" method = "POST">
+        <div class="form-group">
+            <div>
+                <input type="hidden" name="course" value=<%=course[k].name %> >
+                <input type="hidden" name="teacher" value=<%=course[k].teacher %> >
+                <input type="hidden" name="year" value=<%=course[k].year %> >
+            </div>
+        </div>
+        <input type="submit" value="Delete" class="btn btn-light btn-sm btn-block teal darken-4">
+    </form></center>
     </div>
     </div>
     </div>

@@ -1,82 +1,112 @@
- 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head') %>
 </head>
+
 <body class="container">
 
-<header>
-    <%- include('../partials/header4') %>
-</header>
+    <header>
+        <%- include('../partials/header4') %>
+    </header>
 
-<main>
-<div class="row">
-    <div class="col-sm-8">    
-        <div class="jumbotron">
-            <h1>AttenBuddy</h1>
-            <p>Welcome to one of the best Attendance Management System</p>
+    <main>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="jumbotron">
+                    <h2>AttenBuddy</h2>
+                    <p>Welcome to one of the best Attendance Management System</p>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="well">
+                    <form action="/addStudent" method="POST">
+                        <div class="input-group form-group col-10">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="UserId" name="userid">
+
+                        </div>
+                        <div class="input-group form-group col-10">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Batch" name="batch">
+                        </div>
+                        <div class="input-group form-group col-10">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Password" name="password">
+                        </div>
+                        <div class="form-group col-10">
+                            <input type="submit" value="Create" class="btn float-right grey darken-4">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+        <% var k=0 %>
+            <% for (var i=0; i < (student.length/4)+1; i++ ) { %>
+                <div class="row">
+                    <% for (var j=0; j <4; j++ ) { %>
+                        <% if(k<student.length) { %>
+                            <div class="col-sm-3">
+                                <div class="card-body">
+                                    <div class="card grey darken-4 text-white">
+                                        <div class="card-title" style="text-align:center">
+                                            <h4><b>
+                                                    <%= student[k].userid %>
+                                                </b></h4>
+                                        </div>
+                                        <div>
+                                            <center>
+                                                <p class="card-text">
+                                                <h5>Password:</h5>
+                                                <h6>
+                                                    <%= student[k].password %>
+                                                </h6>
+                                                </p>
+                                            </center>
+                                            <center>
+                                                <p class="card-text">
+                                                <h5>Batch:</h5>
+                                                <h6>
+                                                    <%= student[k].batch %>
+                                                </h6>
+                                                </p>
+                                            </center>
+                                        </div>
+                                        <center>
+                                            <form action="/deleteStudent" method="POST">
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="hidden" name="userid" value=<%=student[k].userid %>
+                                                        >
+                                                        <input type="hidden" name="password"
+                                                            value=<%=student[k].password %> >
+                                                    </div>
+                                                </div>
+                                                <input type="submit" value="Delete"
+                                                    class="btn btn-danger btn-sm btn-block teal darken-4">
+                                            </form>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            <% k++} %>
+                                <% } %>
+                </div>
+                <% } %>
+    </main>
 
-    <div class="col-sm-4">        
-        <div class="well">
-            <form action = "/addStudent" method = "POST">
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="userid" name="userid">
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="batch" name="batch">
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fab fa-affiliatetheme"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="password" name="password">
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Create" class="btn float-left  btn-success">
-					</div>
-				</form>
-        </div>
-    </div>
-</div>
-<% var k=0 %>
-<% for (var i =0; i < (student.length/4)+1;  i++ ) { %>
-    <div class="row">
-    <% for (var j =0; j <4;  j++ ) { %>
-      <% if(k<student.length) { %>
-    <div class="col-sm-3">
-    <div class="card-body">
-    <div class="card bg-dark text-white">
-    <h4 class="card-title" style="text-align:center"><em><b><%= student[k].userid %></b></em></h4>
-    <hr color="white">
-    <center><p class="card-text"><h5><em>Password: </em><%= student[k].password %></h5></p></center>
-    <center><p class="card-text"><h5><em>Batch: </em><%= student[k].batch %></h5></p></center>
-    <center><form action = "/deleteStudent" method = "POST"><div class="form-group">
-    <input type="hidden" name="userid" value= <%= student[k].userid %> >
-    <input type="hidden" name="password" value= <%= student[k].password %> >
-    <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block">
-    </div></form></center>
-    </div>
-    </div>
-    </div>
-    <% k++} %>
-    <% } %>
-    </div>
-<% } %>
-</main>
-
-<footer>
-    <%- include('../partials/footer') %>
-</footer>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
 
 </body>
+
 </html>
