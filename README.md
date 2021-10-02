@@ -1,10 +1,11 @@
 # AttenBuddy
-A student Attendance System with features to manage teacher,subjects and student.
+A student Attendance System with features to manage teacher,subjects and student of an Intitute.
 
 ### Credential
 - Admin(prskid, 1234)
 - Student(prskid, 1236)
 - Teacher(prskid, 1235)
+
 
 ![1](https://github.com/prskid1000/AttenBuddy/blob/master/Preview/1.png?raw=true)
 

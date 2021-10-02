@@ -88,5 +88,3 @@ app.post('/modifysheet', teacherb.modifySheet);
 
 app.listen(process.env.PORT || 3000,
     () => console.log("Server is running..."));
-
-console.log('AttenBuddy Started');
